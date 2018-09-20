@@ -1,0 +1,373 @@
+
+goroutine 43 [running]:
+runtime.throw(0x13513f3, 0x26)
+	/usr/local/go/src/runtime/panic.go:605 +0x95 fp=0xc420448c80 sp=0xc420448c60 pc=0x102b625
+runtime.mapiternext(0xc420448de0)
+	/usr/local/go/src/runtime/hashmap.go:778 +0x6f1 fp=0xc420448d18 sp=0xc420448c80 pc=0x100b531
+github.com/uis-dat520-s18/glabs/grouplab4/bankmanager4.(*Bankmanager).GetUsersAccounts(0xc4201341e0, 0xc42031dd80, 0x6, 0xc42031dd88, 0x8, 0x0, 0x0, 0x0)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/bankmanager4/bankmanager4.go:213 +0x102 fp=0xc420448e50 sp=0xc420448d18 pc=0x10f6822
+github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*Client).reader(0xc42019b440)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/ws_client.go:198 +0x23e2 fp=0xc420449fd8 sp=0xc420448e50 pc=0x12922d2
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:2337 +0x1 fp=0xc420449fe0 sp=0xc420449fd8 pc=0x1058fb1
+created by github.com/uis-dat520-s18/glabs/grouplab4/webserver.serveWs
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/ws_client.go:287 +0x196
+
+goroutine 1 [chan receive, 3 minutes]:
+main.main()
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/application/main.go:308 +0x11db
+
+goroutine 5 [syscall, 3 minutes]:
+os/signal.signal_recv(0x0)
+	/usr/local/go/src/runtime/sigqueue.go:131 +0xa7
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:22 +0x22
+created by os/signal.init.0
+	/usr/local/go/src/os/signal/signal_unix.go:28 +0x41
+
+goroutine 6 [select, 3 minutes, locked to thread]:
+runtime.gopark(0x135d808, 0x0, 0x1346c30, 0x6, 0x18, 0x1)
+	/usr/local/go/src/runtime/proc.go:287 +0x12c
+runtime.selectgo(0xc42003df50, 0xc42001c2a0)
+	/usr/local/go/src/runtime/select.go:395 +0x1149
+runtime.ensureSigM.func1()
+	/usr/local/go/src/runtime/signal_unix.go:511 +0x1fe
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:2337 +0x1
+
+goroutine 18 [runnable]:
+syscall.Syscall(0x4, 0x3, 0xc420535680, 0x161, 0x161, 0x0, 0x0)
+	/usr/local/go/src/syscall/asm_darwin_amd64.s:16 +0x5
+syscall.write(0x3, 0xc420535680, 0x161, 0x180, 0xc42003eb01, 0x0, 0x0)
+	/usr/local/go/src/syscall/zsyscall_darwin_amd64.go:1328 +0x55
+syscall.Write(0x3, 0xc420535680, 0x161, 0x180, 0x0, 0x5, 0x1002b0120475ad0)
+	/usr/local/go/src/syscall/syscall_unix.go:181 +0x49
+internal/poll.(*FD).Write(0xc42011a000, 0xc420535680, 0x161, 0x180, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:219 +0x14f
+os.(*File).write(0xc420114008, 0xc420535680, 0x161, 0x180, 0x180, 0xc420535680, 0xc42003ec48)
+	/usr/local/go/src/os/file_unix.go:233 +0x4e
+os.(*File).Write(0xc420114008, 0xc420535680, 0x161, 0x180, 0x161, 0x180, 0xc42003ecc8)
+	/usr/local/go/src/os/file.go:140 +0x72
+os.(*File).WriteString(0xc420114008, 0xc420535500, 0x161, 0x13462f3, 0x1, 0xc420535500)
+	/usr/local/go/src/os/file.go:204 +0x6f
+github.com/uis-dat520-s18/glabs/grouplab4/logger4.(*Logger).write(0xc42010a060, 0x1347d4f, 0xb, 0x1346c72, 0x6, 0x13468db, 0x5, 0xc4203dfcc0, 0x138, 0x0, ...)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/logger4/logger4.go:168 +0x353
+github.com/uis-dat520-s18/glabs/grouplab4/logger4.CreateAndStartLogger.func1(0xc42010a060)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/logger4/logger4.go:94 +0x182
+created by github.com/uis-dat520-s18/glabs/grouplab4/logger4.CreateAndStartLogger
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/logger4/logger4.go:90 +0x281
+
+goroutine 23 [IO wait]:
+internal/poll.runtime_pollWait(0x1750d80, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42013a198, 0x72, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:85 +0xae
+internal/poll.(*pollDesc).waitRead(0xc42013a198, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc42013a180, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:335 +0x1e2
+net.(*netFD).accept(0xc42013a180, 0x134674b, 0x5, 0xc420165bd9)
+	/usr/local/go/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc420114060, 0x1161452, 0x10557b0, 0xc42003ff30)
+	/usr/local/go/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).AcceptTCP(0xc420114060, 0x135cfa8, 0xc420150000, 0x14c59c0)
+	/usr/local/go/src/net/tcpsock.go:234 +0x49
+github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).StartServer.func1(0xc420150000, 0xc420114060)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:243 +0x153
+created by github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).StartServer
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:233 +0xc1
+
+goroutine 27 [select]:
+github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).StartNetwork.func1(0xc420150000)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:167 +0x1db
+created by github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).StartNetwork
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:163 +0x34a
+
+goroutine 29 [runnable]:
+syscall.Syscall(0x4, 0x1, 0xc42038e580, 0x63, 0x63, 0x0, 0x0)
+	/usr/local/go/src/syscall/asm_darwin_amd64.s:16 +0x5
+syscall.write(0x1, 0xc42038e580, 0x63, 0x580, 0xc42004d401, 0x0, 0x0)
+	/usr/local/go/src/syscall/zsyscall_darwin_amd64.go:1328 +0x55
+syscall.Write(0x1, 0xc42038e580, 0x63, 0x580, 0x0, 0x0, 0x0)
+	/usr/local/go/src/syscall/syscall_unix.go:181 +0x49
+internal/poll.(*FD).Write(0xc420082050, 0xc42038e580, 0x63, 0x580, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:219 +0x14f
+os.(*File).write(0xc42000e018, 0xc42038e580, 0x63, 0x580, 0xc42004d600, 0xc42038e580, 0xc420462a80)
+	/usr/local/go/src/os/file_unix.go:233 +0x4e
+os.(*File).Write(0xc42000e018, 0xc42038e580, 0x63, 0x580, 0x0, 0x0, 0xc42004dfa0)
+	/usr/local/go/src/os/file.go:140 +0x72
+fmt.Fprintf(0x14bf860, 0xc42000e018, 0x1358aca, 0x63, 0x0, 0x0, 0x0, 0xc420104de0, 0xc4203dcfd0, 0xc4203dcfd0)
+	/usr/local/go/src/fmt/print.go:182 +0xa5
+fmt.Printf(0x1358aca, 0x63, 0x0, 0x0, 0x0, 0x4c, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:190 +0x72
+github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Proposer).Start.func1(0xc420118180, 0xc42016c150)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/proposer.go:162 +0x331
+created by github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Proposer).Start
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/proposer.go:104 +0x63
+
+goroutine 30 [select]:
+github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Acceptor).Start.func1(0xc42011a6e0)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/acceptor.go:55 +0x18b
+created by github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Acceptor).Start
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/acceptor.go:52 +0x3f
+
+goroutine 31 [select]:
+github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Learner).Start.func1(0xc42011c1c0)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/learner.go:50 +0x13e
+created by github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4.(*Learner).Start
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/multipaxos4/learner.go:48 +0x3f
+
+goroutine 32 [select]:
+github.com/uis-dat520-s18/glabs/grouplab1/detector.(*EvtFailureDetector).Start.func1(0xc42013a500)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab1/detector/fd.go:91 +0x164
+created by github.com/uis-dat520-s18/glabs/grouplab1/detector.(*EvtFailureDetector).Start
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab1/detector/fd.go:88 +0x68
+
+goroutine 33 [IO wait, 3 minutes]:
+internal/poll.runtime_pollWait(0x1750cc0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4201e6018, 0x72, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:85 +0xae
+internal/poll.(*pollDesc).waitRead(0xc4201e6018, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc4201e6000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:335 +0x1e2
+net.(*netFD).accept(0xc4201e6000, 0x135d8a8, 0xc420178db0, 0x10032bb)
+	/usr/local/go/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc42000e500, 0x12df2a0, 0xc420178de0, 0x1002057)
+	/usr/local/go/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).AcceptTCP(0xc42000e500, 0xc420178e28, 0xc420178e30, 0xc420178e20)
+	/usr/local/go/src/net/tcpsock.go:234 +0x49
+net/http.tcpKeepAliveListener.Accept(0xc42000e500, 0x135d268, 0xc4201ee6e0, 0x14c3e20, 0xc4200796e0)
+	/usr/local/go/src/net/http/server.go:3120 +0x2f
+net/http.(*Server).Serve(0xc420110340, 0x14c39e0, 0xc42000e500, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2695 +0x1b2
+net/http.(*Server).ListenAndServe(0xc420110340, 0x135d000, 0xc420134280)
+	/usr/local/go/src/net/http/server.go:2636 +0xa9
+github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*WebServer).startHttpServer.func2(0xc420134280, 0xc420110340)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/webserver.go:106 +0x6d
+created by github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*WebServer).startHttpServer
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/webserver.go:101 +0x21d
+
+goroutine 34 [select]:
+github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*WebServer).handleClients(0xc420134280)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/webserver.go:136 +0x549
+created by github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*WebServer).Start
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/webserver.go:124 +0x85
+
+goroutine 35 [runnable]:
+main.main.func1(0xc42010a060, 0xc420018630, 0xc42016c1c0, 0xc42010a4e0, 0xc420150000, 0xc42018a000, 0xc420108000, 0x3, 0x4, 0xc42010a600, ...)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/application/main.go:232 +0xc85
+created by main.main
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/application/main.go:169 +0xf6d
+
+goroutine 36 [syscall, 1 minutes]:
+syscall.Syscall(0x3, 0x0, 0xc4201c800c, 0xff4, 0x1085061, 0x1084bd5, 0x4)
+	/usr/local/go/src/syscall/asm_darwin_amd64.s:16 +0x5
+syscall.read(0x0, 0xc4201c800c, 0xff4, 0xff4, 0xc4201bf301, 0x0, 0x0)
+	/usr/local/go/src/syscall/zsyscall_darwin_amd64.go:954 +0x55
+syscall.Read(0x0, 0xc4201c800c, 0xff4, 0xff4, 0xc4201bf438, 0x1098d20, 0xc420082050)
+	/usr/local/go/src/syscall/syscall_unix.go:162 +0x49
+internal/poll.(*FD).Read(0xc420082000, 0xc4201c800c, 0xff4, 0xff4, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:122 +0x125
+os.(*File).read(0xc42000e010, 0xc4201c800c, 0xff4, 0xff4, 0x10613bb, 0x14ee1d0, 0xc4203d8f00)
+	/usr/local/go/src/os/file_unix.go:216 +0x4e
+os.(*File).Read(0xc42000e010, 0xc4201c800c, 0xff4, 0xff4, 0x10b7f1b, 0x14ee1d0, 0x0)
+	/usr/local/go/src/os/file.go:103 +0x6d
+bufio.(*Scanner).Scan(0xc4201bfb38, 0x1)
+	/usr/local/go/src/bufio/scan.go:207 +0xaf
+main.main.func2(0xc4201341e0, 0xc42011c0c0, 0xc420150000, 0xc42010a4e0, 0xc42018a000, 0xc42010a600, 0xc42010a660, 0xc42010a6c0, 0xc42010a720, 0xc42010aa20)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/application/main.go:278 +0xf3
+created by main.main
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/application/main.go:274 +0x1007
+
+goroutine 8 [IO wait, 3 minutes]:
+internal/poll.runtime_pollWait(0x1750a80, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4201e6298, 0x72, 0xffffffffffffff00, 0x14c0e60, 0x14bd420)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:85 +0xae
+internal/poll.(*pollDesc).waitRead(0xc4201e6298, 0xc42016a000, 0x1000, 0x1000)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc4201e6280, 0xc42016a000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:126 +0x18a
+net.(*netFD).Read(0xc4201e6280, 0xc42016a000, 0x1000, 0x1000, 0xc4201c58c8, 0x1254eaa, 0xc4201e28a8)
+	/usr/local/go/src/net/fd_unix.go:202 +0x52
+net.(*conn).Read(0xc42026aa80, 0xc42016a000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:176 +0x6d
+net/http.(*connReader).Read(0xc4201e28a0, 0xc42016a000, 0x1000, 0x1000, 0xc4204d2420, 0xc420092e00, 0xc4201c59c8)
+	/usr/local/go/src/net/http/server.go:753 +0x105
+bufio.(*Reader).fill(0xc42031e000)
+	/usr/local/go/src/bufio/bufio.go:97 +0x11a
+bufio.(*Reader).ReadSlice(0xc42031e000, 0xc4204a870a, 0xc4201c5ae0, 0x10177a3, 0xc4201c5aa0, 0x1752d70, 0xc4201ea1e0)
+	/usr/local/go/src/bufio/bufio.go:338 +0x2c
+bufio.(*Reader).ReadLine(0xc42031e000, 0x100, 0xf8, 0x133c260, 0xc4201c5a98, 0x2200010031b9, 0xf8)
+	/usr/local/go/src/bufio/bufio.go:367 +0x34
+net/textproto.(*Reader).readLineSlice(0xc420104180, 0xc4201c5b20, 0xc4201c5b20, 0x1012748, 0x100, 0x133c260)
+	/usr/local/go/src/net/textproto/reader.go:55 +0x70
+net/textproto.(*Reader).ReadLine(0xc420104180, 0xc4201ec200, 0x0, 0xc4201c5b90, 0x1097ec2)
+	/usr/local/go/src/net/textproto/reader.go:36 +0x2b
+net/http.readRequest(0xc42031e000, 0x0, 0xc4201ec200, 0x0, 0x0)
+	/usr/local/go/src/net/http/request.go:925 +0x99
+net/http.(*conn).readRequest(0xc4201ee280, 0x14c3d60, 0xc420186bc0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:933 +0x17c
+net/http.(*conn).serve(0xc4201ee280, 0x14c3d60, 0xc420186bc0)
+	/usr/local/go/src/net/http/server.go:1739 +0x50e
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2720 +0x288
+
+goroutine 58 [IO wait]:
+internal/poll.runtime_pollWait(0x1750c00, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42013a098, 0x72, 0xffffffffffffff00, 0x14c0e60, 0x14bd420)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:85 +0xae
+internal/poll.(*pollDesc).waitRead(0xc42013a098, 0xc4201c9000, 0x1000, 0x1000)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42013a080, 0xc4201c9000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:126 +0x18a
+net.(*netFD).Read(0xc42013a080, 0xc4201c9000, 0x1000, 0x1000, 0x3, 0x18a, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x52
+net.(*conn).Read(0xc42026a010, 0xc4201c9000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:176 +0x6d
+bufio.(*Reader).Read(0xc42031e4e0, 0xc4204ede10, 0x1, 0x9, 0x0, 0x0, 0x0)
+	/usr/local/go/src/bufio/bufio.go:213 +0x30b
+io.ReadAtLeast(0x14be860, 0xc42012a330, 0xc4204ede10, 0x1, 0x9, 0x1, 0xc420310f00, 0x23a1ed0, 0xc4201d4fa8)
+	/usr/local/go/src/io/io.go:309 +0x86
+io.ReadFull(0x14be860, 0xc42012a330, 0xc4204ede10, 0x1, 0x9, 0x1053340, 0x15a2000, 0x3)
+	/usr/local/go/src/io/io.go:327 +0x58
+encoding/gob.decodeUintReader(0x14be860, 0xc42012a330, 0xc4204ede10, 0x9, 0x9, 0xc4201d5040, 0x1029ef9, 0xc400000008, 0xc42011c040)
+	/usr/local/go/src/encoding/gob/decode.go:120 +0x63
+encoding/gob.(*Decoder).recvMessage(0xc4204b0200, 0xc4201d5058)
+	/usr/local/go/src/encoding/gob/decoder.go:80 +0x57
+encoding/gob.(*Decoder).decodeTypeSequence(0xc4204b0200, 0x135d800, 0xc4204b0200)
+	/usr/local/go/src/encoding/gob/decoder.go:144 +0x14c
+encoding/gob.(*Decoder).DecodeValue(0xc4204b0200, 0x12bebc0, 0xc4204ae000, 0x16, 0x0, 0x0)
+	/usr/local/go/src/encoding/gob/decoder.go:212 +0xe6
+encoding/gob.(*Decoder).Decode(0xc4204b0200, 0x12bebc0, 0xc4204ae000, 0xc4204ede10, 0x9)
+	/usr/local/go/src/encoding/gob/decoder.go:189 +0x16d
+github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).ReadFromConn(0xc420150000, 0x14c59c0, 0xc42026a010)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:270 +0x43e
+created by github.com/uis-dat520-s18/glabs/grouplab4/network4.(*Network).StartServer.func1
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/network4/network4.go:251 +0x142
+
+goroutine 44 [chan receive]:
+github.com/uis-dat520-s18/glabs/grouplab4/webserver.(*Client).writer(0xc42019b440)
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/ws_client.go:259 +0xad
+created by github.com/uis-dat520-s18/glabs/grouplab4/webserver.serveWs
+	/Users/didrik/go/src/github.com/uis-dat520-s18/glabs/grouplab4/webserver/ws_client.go:289 +0x1cf
+exit status 2
+
+
+
+
+[26/04/2018, 20:31:53] Magnus Gustavsen: ERROR in ./src/components/Application.vue (./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?
+onsId":"0","vue":true,"id":"data-v-61cc0d70","scoped":true,"sourceMap":true}!./node_modules/sass-loader/lib/loader
+dentedSyntax!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/components/Application.vue)
+Module build failed: Error: Cannot find module 'node-sass'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:571:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:497:25)
+    at Module.require (internal/modules/cjs/loader.js:626:17)
+    at require (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_module
+ompile-cache\v8-compile-cache.js:159:20)
+    at Object.<anonymous> (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\
+odules\sass-loader\lib\loader.js:3:14)
+    at Module._compile (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\nod
+les\v8-compile-cache\v8-compile-cache.js:178:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:689:10)
+    at Module.load (internal/modules/cjs/loader.js:589:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:528:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:520:3)
+    at Module.require (internal/modules/cjs/loader.js:626:17)
+    at require (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_module
+ompile-cache\v8-compile-cache.js:159:20)
+    at loadLoader (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\loadLoader.js:13:17)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:169:2)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:165:10)
+    at C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_modules\loader-
+\lib\LoaderRunner.js:173:18
+    at loadLoader (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\loadLoader.js:36:3)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:169:2)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:165:10)
+    at C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_modules\loader-
+\lib\LoaderRunner.js:173:18
+    at loadLoader (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\loadLoader.js:36:3)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:169:2)
+    at runLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\LoaderRunner.js:362:2)
+    at NormalModule.doBuild (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclien
+_modules\webpack\lib\NormalModule.js:225:3)
+    at NormalModule.build (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\
+odules\webpack\lib\NormalModule.js:343:15)
+    at Compilation.buildModule (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcl
+ode_modules\webpack\lib\Compilation.js:361:10)
+    at factory.create (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node
+es\webpack\lib\Compilation.js:587:15)
+    at factory (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_module
+ack\lib\NormalModuleFactory.js:366:6)
+    at hooks.afterResolve.callAsync (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\
+ent\node_modules\webpack\lib\NormalModuleFactory.js:143:13)
+    at AsyncSeriesWaterfallHook.eval [as callAsync] (eval at create (C:\Users\magnu\Dropbox\Tech\go\src\github.com
+at520-s18\glabs\grouplab4\webclient\node_modules\tapable\lib\HookCodeFactory.js:24:12), <anonymous>:6:1)
+    at resolver (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_modul
+pack\lib\NormalModuleFactory.js:126:29)
+    at process.nextTick (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\no
+ules\webpack\lib\NormalModuleFactory.js:304:9)
+    at process._tickCallback (internal/process/next_tick.js:172:11)
+ @ ./node_modules/vue-style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{"option
+0","vue":true,"id":"data-v-61cc0d70","scoped":true,"sourceMap":true}!./node_modules/sass-loader/lib/loader.js?inde
+ntax!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/components/Application.vue 4:14-364
+ @ ./src/components/Application.vue
+ @ ./src/app.js
+
+ERROR in ./src/components/LoginRegister.vue (./node_modules/css-loader!./node_modules/vue-loader/lib/style-compile
+tionsId":"0","vue":true,"id":"data-v-3270814c","scoped":true,"sourceMap":true}!./node_modules/sass-loader/lib/load
+indentedSyntax!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/components/LoginRegister.vue)
+Module build failed: Error: Cannot find module 'node-sass'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:571:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:497:25)
+    at Module.require (internal/modules/cjs/loader.js:626:17)
+    at require (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_module
+ompile-cache\v8-compile-cache.js:159:20)
+    at Object.<anonymous> (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\
+odules\sass-loader\lib\loader.js:3:14)
+    at Module._compile (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\nod
+les\v8-compile-cache\v8-compile-cache.js:178:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:689:10)
+    at Module.load (internal/modules/cjs/loader.js:589:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:528:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:520:3)
+    at Module.require (internal/modules/cjs/loader.js:626:17)
+    at require (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_module
+ompile-cache\v8-compile-cache.js:159:20)
+    at loadLoader (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\loadLoader.js:13:17)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:169:2)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:165:10)
+    at C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_modules\loader-
+\lib\LoaderRunner.js:173:18
+    at loadLoader (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webclient\node_mod
+oader-runner\lib\loadLoader.js:36:3)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:169:2)
+    at iteratePitchingLoaders (C:\Users\magnu\Dropbox\Tech\go\src\github.com\uis-dat520-s18\glabs\grouplab4\webcli
+de_modules\loader-runner\lib\LoaderRunner.js:165:10)
+    at C:\Users\magnu\Dropbox\Tech\go\src\github.co...
+[26/04/2018, 20:32:09] Magnus Gustavsen: npm ERR! code ELIFECYCLE
+npm ERR! errno 2
+npm ERR! widget-area@1.0.0 build: `cross-env NODE_ENV=development webpack --progress --hide-mod
+npm ERR! Exit status 2
+npm ERR!
+npm ERR! Failed at the widget-area@1.0.0 build script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output abo
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\magnu\AppData\Roaming\npm-cache\_logs\2018-04-26T18_29_46_904Z-debug.log

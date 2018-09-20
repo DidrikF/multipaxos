@@ -1,0 +1,38 @@
+#Bank Manager:
+ - Decided Value History:
+ 0: Value{ClientID: WAFNuqjiHM, ClientSeq: 0, AccountNr: 42, Txn: Deposit transaction with amount 100 NOK}
+1: Value{ClientID: WAFNuqjiHM, ClientSeq: 1, AccountNr: 42, Txn: Deposit transaction with amount 200 NOK}
+2: Value{ClientID: WAFNuqjiHM, ClientSeq: 2, AccountNr: 52, Txn: Deposit transaction with amount 100 NOK}
+ - Transaction Result History:
+ 0: Transaction OK. Account: 42. Balance: 100 NOK
+1: Transaction OK. Account: 42. Balance: 300 NOK
+2: Transaction OK. Account: 52. Balance: 100 NOK
+
+
+
+
+
+#Bank Manager:
+ - Decided Value History:
+ 0: Value{ClientID: WAFNuqjiHM, ClientSeq: 0, AccountNr: 42, Txn: Deposit transaction with amount 100 NOK}
+1: Value{ClientID: WAFNuqjiHM, ClientSeq: 1, AccountNr: 42, Txn: Deposit transaction with amount 200 NOK}
+2: Value{ClientID: WAFNuqjiHM, ClientSeq: 2, AccountNr: 52, Txn: Deposit transaction with amount 100 NOK}
+3: Value{ClientID: WAqASYXOnH, ClientSeq: 2, AccountNr: 62, Txn: Deposit transaction with amount 1000 NOK}
+ - Transaction Result History:
+ 0: Transaction OK. Account: 42. Balance: 100 NOK
+1: Transaction OK. Account: 42. Balance: 300 NOK
+2: Transaction OK. Account: 52. Balance: 100 NOK
+3: Transaction OK. Account: 62. Balance: 1000 NOK
+
+
+#Bank Manager:
+ - Decided Value History:
+0: Value{ClientID: WAFNuqjiHM, ClientSeq: 0, AccountNr: 42, Txn: Deposit transaction with amount 100 NOK}
+1: Value{ClientID: WAFNuqjiHM, ClientSeq: 1, AccountNr: 42, Txn: Deposit transaction with amount 200 NOK}
+2: Value{ClientID: WAFNuqjiHM, ClientSeq: 2, AccountNr: 52, Txn: Deposit transaction with amount 100 NOK}
+3: Value{ClientID: WAqASYXOnH, ClientSeq: 0, AccountNr: 62, Txn: Deposit transaction with amount 1000 NOK}
+ - Transaction Result History:
+0: Transaction OK. Account: 42. Balance: 100 NOK
+1: Transaction OK. Account: 42. Balance: 300 NOK
+2: Transaction OK. Account: 52. Balance: 100 NOK
+3: Transaction OK. Account: 62. Balance: 1000 NOK

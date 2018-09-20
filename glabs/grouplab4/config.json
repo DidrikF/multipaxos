@@ -1,0 +1,50 @@
+{
+    "development": {
+        "nodes": [
+            {
+                "id": 1,
+                "ip": "localhost",
+                "serverPort": 4001
+            },
+            {
+                "id": 2,
+                "ip": "localhost",
+                "serverPort": 4002
+            },
+            {
+                "id": 3,
+                "ip": "localhost",
+                "serverPort": 4003
+            },
+            {
+                "id": 4,
+                "ip": "localhost",
+                "serverPort": 4004
+            }
+        ]
+    },
+    "production": {
+        "nodes": [
+            {
+                "id": 1,
+                "ip": "152.94.1.145",
+                "serverPort": 4001
+            },
+            {
+                "id": 2,
+                "ip": "152.94.1.149",
+                "serverPort": 4002
+            },
+            {
+                "id": 3,
+                "ip": "152.94.1.152",
+                "serverPort": 4003
+            },
+            {
+                "id": 4,
+                "ip": "152.94.1.154",
+                "serverPort": 4004
+            }
+        ]
+    }
+}

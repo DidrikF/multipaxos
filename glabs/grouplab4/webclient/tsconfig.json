@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "noUnusedLocals": true, // for tslint
+        "noUnusedParameters": true, // for tslint
+        "outDir": "./built/",
+        "target": "es2017",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "allowJs": true,
+        "experimentalDecorators": true
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

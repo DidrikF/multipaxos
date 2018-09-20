@@ -1,0 +1,141 @@
+package main
+
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+	"time"
+)
+
+var httpAddr = flag.String("http", ":8080", "Listen address")
+
+func main() {
+	flag.Parse()
+	server := NewServer()
+
+	log.Fatal(http.ListenAndServe(*httpAddr, server))
+
+}
+
+type Server struct {
+	//understand that it is nothing special about http.Server, it also just a custom type building on struct!!!
+	//It is how this "object" is consumed and used that define the ultimate behaviour of the application.
+	Addr           string
+	Handler        *reqHandler //Should implement the Handler interface ...
+	ReadTimeout    time.Duration
+	WriteTimeout   time.Duration
+	MaxHeaderBytes int
+	counter        int
+}
+
+type reqHandler struct {
+	counter int
+}
+
+// RESPONSE HANDLERS
+func (rh *reqHandler) homeHandler(w http.ResponseWriter, r *http.Request) {
+	res := []byte("Hello World!\n")
+	w.Write(res)
+	//io.WriteString(w, )
+}
+
+func (rh *reqHandler) counterHandler(w http.ResponseWriter, r *http.Request) {
+	res := []byte("counter: " + string(rh.counter) + "\n")
+
+	w.Write(res)
+
+	//io.WriteString(w, ans)
+}
+
+var mux map[string]func(http.ResponseWriter, *http.Request)
+
+// NewServer returns a new Server with all required internal state initialized.
+// NOTE: It should NOT start to listen on an HTTP endpoint.
+func NewServer() *Server {
+
+	rh := &reqHandler{
+		counter: 0,
+	}
+
+	s := &Server{
+		Addr:           *httpAddr,
+		Handler:        rh,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+		//counter:        0,
+	}
+
+	mux = make(map[string]func(http.ResponseWriter, *http.Request))
+	mux["/"] = rh.homeHandler
+	mux["/counter"] = rh.counterHandler
+
+	//Handle and HandleFunc add handlers to DefaultServeMux:
+	//http.Handle("/", s) //s implements Hander interface
+
+	ser := http.Server{
+		Addr:    *httpAddr,
+		Handler: rh,
+	}
+	ser.ListenAndServe()
+
+	return ser //do not start to listen!
+}
+
+//this makes us implement the Handle interface on the Server type!
+//We can now pass the custom server to http.Handle() which will use the ServeHTTP() method to handle HTTP requests. I think... ???
+
+//Seems like this is the only thing called to deal with a request
+
+func (rh *reqHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) { //WHY DO WE ADD THE ServeHTTP MEHTOD TO THE SERVER ??? The server should have a handler that has this method!
+	fmt.Println(rh)
+	rh.counter = rh.counter + 1
+
+	if h, ok := mux[r.URL.String()]; ok {
+		h(w, r)
+		return
+	}
+
+}
+
+/*
+func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) { //WHY DO WE ADD THE ServeHTTP MEHTOD TO THE SERVER ??? The server should have a handler that has this method!
+	s.Handler.counter = s.Handler.counter + 1
+
+	if h, ok := mux[r.URL.String()]; ok {
+		h(w, r)
+		return
+	}
+
+}
+*/
+
+/*
+
+More control over the server's behavior is available by creating a custom Server:
+
+s := &http.Server{
+	Addr:           ":8080",
+	Handler:        myHandler,
+	ReadTimeout:    10 * time.Second,
+	WriteTimeout:   10 * time.Second,
+	MaxHeaderBytes: 1 << 20,
+}
+log.Fatal(s.ListenAndServe())
+
+
+
+NotFoundHandler() //returns 404 not found
+RedirectHandler(url, code) //
+StripPrefix(prefix, handler) //decorate another handler // like middleware
+TimoutHandler(Handler, time.Duration, msg string)
+FileServer(root FileSystem)
+
+
+Pointers or values as recievers?
+Whether to define the receiver as a value or as a pointer is the same question, then, as whether a function argument should be a value or a pointer. There are several considerations.
+First, and most important, does the method need to modify the receiver? If it does, the receiver must be a pointer.
+
+
+*/

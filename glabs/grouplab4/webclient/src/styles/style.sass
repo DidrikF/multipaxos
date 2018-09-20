@@ -1,0 +1,47 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css')
+    
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700')
+@import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css')
+
+// Mixins
+=e($name)
+	@at-root #{&}__#{$name}
+		@content
+
+=m($name)
+	@at-root #{&}--#{$name}
+		@content
+
+
+// Variables
+$black: #1b1e24
+$darkGrey: #212329        
+$gray: #282A31
+$lightGrey: #474D55
+$ligherGrey: #535862
+$veryLightGrey: #8B8F9E
+$red: #EE605A
+$green: #29A498
+$blue: #3B89D6
+$bsBlue: #4478A0
+$bsBlue2: #5A85D4
+$bsLightBlue: #E0EBFD
+$almostWhite: #EFF3F8
+$white: #FBFBFB
+$lightBlue: #3B89B6
+
+// Helpers
+
+
+// Styles
+.html // Don't know if this works
+    box-sizing: border-box
+*, *:before, *after
+    box-sizing: inherit
+
+
+body
+    font-family: "Roboto"
+
+

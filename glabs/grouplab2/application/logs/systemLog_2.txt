@@ -1,0 +1,11 @@
+2018-02-27T20:10:11+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:10:18+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:10:23+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:10:29+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:10:34+01:00  -  ERR  -  #Network: Failed to decode message from tcpConn, exiting goroutine and cleaning up connection. The error from the json decoder: EOF
+2018-02-27T20:10:34+01:00  -  ERR  -  #Network: EOF
+2018-02-27T20:13:32+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:13:52+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:13:59+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:14:05+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
+2018-02-27T20:14:11+01:00  -  ERR  -  #Network: Failed to UNMARSHAL message. Error: invalid character ':' after top-level value
